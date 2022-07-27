@@ -1,0 +1,91 @@
+
+.full-width-video {
+    width: 100%    !important;
+    height: auto   !important;
+    position: absolute;
+    background-color: black; /* to show pre-allocated space */
+    aspect-ratio: auto;
+    top: -25%;
+  }
+  .video-container{
+    display: flex;
+    width: 100%    !important;
+    height:80vh   !important;
+    position: relative;
+    overflow: hidden;
+  }
+  .video-volume-control{
+    width: auto; 
+    height: auto; 
+    /* background-color: black; */
+    position: absolute; 
+    z-index: 3; 
+    bottom: 2rem; 
+    right: 2rem; 
+    opacity: 0.5;
+  }
+    /* override for desktop */
+  
+  @media only screen and (max-width: 480px) {
+    .full-width-video {
+      width: 100%    !important;
+      height: auto   !important;
+      position: relative;
+      background-color: black; /* to show pre-allocated space */
+    }
+    .video-container{
+      display: flex;
+      width: 100%    !important;
+      height: auto   !important;
+    }  
+  }
+  
+  @media only screen and (max-width: 1280px) {
+    .full-width-video {
+      width: 100%    !important;
+      height: auto   !important;
+      position: relative;
+      background-color: black; /* to show pre-allocated space */
+      top: 0px;
+    }
+    .video-container{
+      display: flex;
+      width: 100%    !important;
+      height:70vh   !important;
+      position: relative;
+      overflow: hidden;
+    }  
+  }
+  @media only screen and (max-width: 1420px) {
+    .full-width-video {
+      width: 100%    !important;
+      height: auto   !important;
+      position: relative;
+      background-color: black; /* to show pre-allocated space */
+      aspect-ratio: auto;
+      top: 0px;
+    }
+    .video-container{
+      display: flex;
+      width: 100%    !important;
+      height: auto   !important;
+      position: relative;
+    }  
+  }
+  
+  @media only screen and (min-height: 1100px) {
+    .full-width-video {
+      width: 100%    !important;
+      height: auto   !important;
+      position: relative;
+      background-color: black; /* to show pre-allocated space */
+      top: 0px;
+    }
+    .video-container{
+      display: flex;
+      width: 100%    !important;
+      height: auto   !important;
+      position: relative;
+    }  
+  }
+  

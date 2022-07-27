@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Responsive video HTML JAVASCRIPT CSS</title>
+    <link href="style.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+</head>
+<body>
+    <div class="video-container">
+        <video id="my-video" class="full-width-video" loop autoplay playsinline muted poster="https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800">
+            <source id="my-video-source" src="https://player.vimeo.com/external/342571552.hd.mp4?s=6aa6f164de3812abadff3dde86d19f7a074a8a66&profile_id=175&oauth2_token_id=57447761" type="video/mp4">
+        </video>
+        <i class="fa fa-volume-up video-volume-control" id="btn-vol-video" aria-hidden="true"></i>
+    </div>
+
+    <script>
+
+        const videoVol = document.getElementById('btn-vol-video');
+        const video    = document.getElementById("my-video");
+        const source   = document.getElementById("my-video-source");
+
+        resizeVideo();
+
+        videoVol.addEventListener("click", function() {
+    
+            if (video.muted == false) 
+                video.muted = true;
+            else{
+                video.muted = false;
+                video.volume = 7;
+            } 
+        });	
+    
+        function resizeVideo() {
+    
+            // default to mobile video source and poster
+            let src = source.src;
+            let poster = video.poster;
+            let w = innerWidth;
+
+            if ( innerWidth < 480) {
+                src = "https://player.vimeo.com/external/342571552.hd.mp4?s=6aa6f164de3812abadff3dde86d19f7a074a8a66&profile_id=175&oauth2_token_id=57447761";  // link of video in mobile aspect ratio ex: 3:4
+                poster = "https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800";                  // link of image in mobile aspect ratio ex: 3:4
+            }
+            else{
+                src = "https://player.vimeo.com/external/269971860.hd.mp4?s=eae965838585cc8342bb5d5253d06a52b2415570&profile_id=174&oauth2_token_id=57447761";  // link of video in desktop 16:9 aspect ratio
+                poster = "https://images.pexels.com/photos/2014422/pexels-photo-2014422.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200";                  // link of image in desktop 16:9 aspect ratio
+            }
+            if (source.src !== src) {
+                // only override values if they differ
+                source.src = src;
+                video.poster= poster;
+                video.load();
+            }
+        }
+
+        window.addEventListener("resize", resizeVideo);
+    
+    </script>
+    
+</body>
+</html>
+
+
+
+
